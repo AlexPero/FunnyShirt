@@ -10,3 +10,16 @@
 .form-group{
     margin-top: 1rem;
 }
+
+
+#mapid{
+    height: 50%;
+    border-radius: 25px;
+}
+.titleMagContact{
+    text-align: center;
+    margin-top: 2rem;
+}
+.content{
+    text-align: center;
+}

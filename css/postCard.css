@@ -5,6 +5,7 @@
 .post-card__link{
     text-decoration: none;
     color: black;
+    width: 100%;
 }
 .post-card__img{
     max-width: 100%;
@@ -17,6 +18,10 @@
 }
 .post-card__excerpt{
     color:black;
+}
+.post-card__ville{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .post-card:hover{

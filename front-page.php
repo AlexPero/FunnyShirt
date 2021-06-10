@@ -68,11 +68,13 @@ $posts = new WP_Query([
                     <div class="post-card__content">
                         <h3 class="post-card__title"> <?php the_title(); ?></h3>
                         <?php $villes = get_the_terms(get_the_ID(), 'sell_ville'); ?>
-                        <?php if ($villes): ?>
-                            <?php foreach ( $villes as $ville) : ?>
-                                <p> <?php echo $ville->name; ?></p>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+                        <div class="post-card__ville">
+                            <?php if ($villes): ?>
+                                <?php foreach ($villes as $ville) : ?>
+                                    <p style="display: inline"><b> <?php echo $ville->name; ?></b></p>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
                         <a href="<?php the_permalink(); ?>" class="post-card__link btn btn-success">
                             Aller voir le magasin
                         </a>

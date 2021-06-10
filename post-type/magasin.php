@@ -43,3 +43,16 @@ register_taxonomy('sell_ville', ['magasin'], [
     'rewrite' =>['slug' => 'sell_ville'],
     'hierarchical' => false,
 ]);
+
+add_action('carbon_fields_register_fields', function(){
+    Container::make('post_meta', 'Caractéristique Magasin')
+        ->where('post_type', '=', 'magasin')
+        ->add_fields([
+            Field::make_text('adress', 'Adresse'),
+            Field::make_text('phone', 'Téléphone'),
+            Field::make('map', 'coordonnee'),
+            Field::make('text', 'longitude', 'Longitude'),
+            Field::make('text', 'latitude', 'Latitude'),
+
+        ]);
+});
