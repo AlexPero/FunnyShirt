@@ -3,5 +3,8 @@
     "sass": "^1.34.1",
     "sass-loader": "^12.0.0",
     "webpack": "^5.38.1"
+  },
+  "dependencies": {
+    "slick-carousel": "^1.8.1"
   }
 }

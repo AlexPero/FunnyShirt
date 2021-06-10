@@ -1,0 +1,25 @@
+
+.custom-logo-link .custom-logo{
+    width: 100px;
+    height: 100px;
+}
+.nav-link{
+    font-size: 1.2rem;
+}
+.flexHeader{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.logo{
+    display: flex;
+    flex-direction: row;
+}
+.titleHeader{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+.titleSite{
+    font-size: 2rem;
+}
