@@ -24,6 +24,7 @@ add_action('after_setup_theme', function () {
     require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
 
     require_once get_template_directory() . '/post-type/slider.php';
+    require_once get_template_directory() . '/post-type/magasin.php';
 
     //Menu
     register_nav_menu('navbar', 'Menu de haut de page');
@@ -59,6 +60,17 @@ function display_card():void
         echo '</div>';
 
 }
+
+add_action( 'carbon_fields_register_fields', function() {
+    Container::make( 'theme_options', 'Page d\'accueil' )
+        ->add_fields( array(
+            Field::make( 'text', 'title', 'Titre de la page' ),
+            Field::make( 'text', 'description', 'Description' ),
+            Field::make( 'text', 'title-actu', 'Titre des actus' ),
+            Field::make( 'text', 'title-mag', 'Titre des magasins' ),
+            Field::make( 'text', 'title-sell', 'Titre meilleures ventes' ),
+        ));
+} );
 
 
 

@@ -34,7 +34,7 @@ add_action('init', function () {
         'show_in_menu' => true,
         'public' => true,
         'supports' => ['title', 'thumbnail'],
-        'rewrite' => ['slug' => 'employe'],
+        'rewrite' => ['slug' => 'slider'],
         'menu_icon' => 'dashicons-buddicons-buddypress-logo'
     ]);
 });
