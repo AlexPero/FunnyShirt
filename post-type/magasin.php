@@ -33,7 +33,7 @@ add_action('init', function () {
         ],
         'show_in_menu' => true,
         'public' => true,
-        'supports' => ['title', 'thumbnail'],
+        'supports' => ['title', 'thumbnail', 'editor'],
         'rewrite' => ['slug' => 'magasin'],
         'menu_icon' => 'dashicons-products'
     ]);

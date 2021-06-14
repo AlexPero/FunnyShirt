@@ -38,7 +38,7 @@ $posts = new WP_Query([
                                 <?php foreach ($buttons as $button) : ?>
                                     <?php $arrayButton = $button["crb_association"]; ?>
                                     <?php foreach ($arrayButton as $link ) : ?>
-                                        <a href="<?= get_the_permalink($link['id']); ?>" class="btn btn-danger buttonSlider">
+                                        <a href="<?= get_the_permalink($link['id']); ?>" class="<?= $button['button_color']; ?> buttonSlider">
                                             <?= $button['text'] ?>
                                         </a>
                                     <?php endforeach; ?>
@@ -58,6 +58,9 @@ $posts = new WP_Query([
 <div class="container mt-3 mb-3">
     <h2> <?= carbon_get_theme_option('title'); ?> </h2>
     <p> <?= carbon_get_theme_option('description'); ?></p>
+    <a href="<?= carbon_get_theme_option('crb_association'); ?>" class="btn btn-success">
+        <?= carbon_get_theme_option('button_text'); ?>
+    </a>
 </div>
 
 <div class="container">

@@ -72,6 +72,16 @@ add_action('carbon_fields_register_fields', function () {
         ->add_fields(array(
             Field::make('text', 'title', 'Titre de la page'),
             Field::make('text', 'description', 'Description'),
+            Field::make('text', 'button_text', 'Texte du bouton'),
+            Field::make( 'association', 'crb_association', __( 'Association' ) )
+                ->set_types( array(
+                    array(
+                        'type'      => 'post',
+                        'post_type' => 'page',
+                    )
+                ))
+                ->set_max(1)
+                ->set_min(1),
             Field::make('text', 'title-actu', 'Titre des actus'),
             Field::make('text', 'title-mag', 'Titre des magasins'),
             Field::make('text', 'title-sell', 'Titre meilleures ventes'),

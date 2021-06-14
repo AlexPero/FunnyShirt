@@ -52,6 +52,17 @@ add_action('carbon_fields_register_fields', function () {
             Field::make('complex', 'btnslider')
                 ->add_fields([
                     Field::make('text', 'text'),
+                    Field::make( 'radio', 'button_color', 'De quel couleur sera le bouton ?' )
+                        ->add_options( array(
+                            'btn btn-primary' => 'Bleu',
+                            'btn btn-danger' => 'Rouge',
+                            'btn btn-warning'=> 'Jaune orangé',
+                            'btn btn-success' => 'vert',
+                            'btn btn-info' => 'Bleu clair un peu turquoise',
+                            'btn btn-secondary' => 'Gris',
+                            'btn btn-dark' => 'Noir',
+                            'btn btn-light' => 'Blanc',
+                        ) ),
                     Field::make( 'association', 'crb_association', __( 'Association' ) )
                         ->set_types( array(
                             array(
@@ -63,8 +74,8 @@ add_action('carbon_fields_register_fields', function () {
                                 'post_type' => 'post',
                             ),
                             array(
-                                'type'      => 'term',
-                                'taxonomy' => 'sell_ville',
+                                'type'      => 'post',
+                                'post_type' => 'magasin',
                             )
                         ) )
                         ->set_max(1)
