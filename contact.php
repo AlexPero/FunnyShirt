@@ -44,6 +44,7 @@
             <div id="mapid">
                 <script type="text/javascript">
                     var center = [47.877961,  -0.482040]
+
                     var macarte = null;
                     // Fonction d'initialisation de la carte
                     function initMap() {
@@ -58,6 +59,7 @@
                         }).addTo(mapid);
                     }
                     initMap();
+                    let markers = [];
                 </script>
             </div>
             <?php if ($magasins->have_posts()) : while ($magasins->have_posts()) : $magasins->the_post(); ?>
@@ -65,14 +67,11 @@
                 <div class="content">
                     <p><b><?= carbon_get_the_post_meta('adress'); ?></b></p>
                     <?php $adresse = carbon_get_the_post_meta('adress'); ?>
+                    <?php $coordonee = carbon_get_the_post_meta('coordonnee'); ?>
                     <script type="text/javascript">
-                        if (typeof(marker) ==='undefined'){
-                            merker = L.marker([<?php echo carbon_get_the_post_meta('longitude');?>, <?php echo carbon_get_the_post_meta('latitude');?>]).addTo(mapid);
-                        }else{
-                            let marker = L.marker([<?php echo carbon_get_the_post_meta('longitude');?>, <?php echo carbon_get_the_post_meta('latitude');?>]).addTo(mapid);
-                        }
-                        //let popup = <?php echo $adresse ?>;
-                        //marker.bindPopup(popup);
+                        markers.push(new L.marker([<?= $coordonee['lat']; ?>, <?= $coordonee['lng'];?>])
+                            .bindPopup('<?= $adresse?>')
+                            .addTo(mapid));
                     </script>
                     <p> Téléphone = <?= carbon_get_the_post_meta('phone'); ?></p>
                 </div>
@@ -83,5 +82,5 @@
         </div>
     </div>
 </div>
-
+<br><br><br><br>
 <?php get_footer(); ?>

@@ -51,8 +51,6 @@ add_action('carbon_fields_register_fields', function(){
             Field::make_text('adress', 'Adresse'),
             Field::make_text('phone', 'Téléphone'),
             Field::make('map', 'coordonnee'),
-            Field::make('text', 'longitude', 'Longitude'),
-            Field::make('text', 'latitude', 'Latitude'),
 
         ]);
 });

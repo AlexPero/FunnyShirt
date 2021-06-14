@@ -1,9 +1,10 @@
 jQuery(document).ready(function ($) {
+    console.log('ready');
     $('.slider-front').slick({
-        slidesToShow: 2,
         fullwidth: true,
         autoplay: true,
         variableWidth: true,
         variableHeight: true,
+        arrows: false,
     });
 })
