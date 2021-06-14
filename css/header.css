@@ -3,6 +3,9 @@
     width: 100px;
     height: 100px;
 }
+.custom-logo:hover{
+    transform: rotate(15deg);
+}
 .nav-link{
     font-size: 1.2rem;
 }

@@ -21,6 +21,7 @@ add_action('after_setup_theme', function () {
     add_theme_support('html5'); //Support HTML
     add_theme_support('custom-header');
     add_theme_support('custom-logo');
+    add_theme_support('woocommerce' );
     require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
 
     require_once get_template_directory() . '/post-type/slider.php';
@@ -28,7 +29,6 @@ add_action('after_setup_theme', function () {
 
     //Menu
     register_nav_menu('navbar', 'Menu de haut de page');
-    register_nav_menu('footer', 'Menu de pied de page');
 });
 
 add_filter('upload_mimes', 'wpc_mime_types');
@@ -47,30 +47,51 @@ function wpc_mime_types($mimes)
  * @param string $excerpt
  * @param $link
  */
-function display_card():void
+function display_card(): void
 {
-        echo '<div>';
-        echo '<img src="'.the_post_thumbnail_url().'" class="post-card__img"
+    echo '<div>';
+    echo '<img src="' . the_post_thumbnail_url() . '" class="post-card__img"
                              alt="Image de l\'article : ' . the_title() . '?>">';
-        echo '</div>';
-        echo '<div class="post-card__content>';
-        echo '<h3 class="post-card__title"> ' . the_title() . '</h3>';
-        echo '<p class="post-card__excerpt"> ' . the_excerpt() . '</p>';
-        echo '<a href="' . the_permalink() . '" class="post-card__link btn btn-success"> Lire la suite ... </a>';
-        echo '</div>';
+    echo '</div>';
+    echo '<div class="post-card__content>';
+    echo '<h3 class="post-card__title"> ' . the_title() . '</h3>';
+    echo '<p class="post-card__excerpt"> ' . the_excerpt() . '</p>';
+    echo '<a href="' . the_permalink() . '" class="post-card__link btn btn-success"> Lire la suite ... </a>';
+    echo '</div>';
 
 }
 
-add_action( 'carbon_fields_register_fields', function() {
-    Container::make( 'theme_options', 'Page d\'accueil' )
-        ->add_fields( array(
-            Field::make( 'text', 'title', 'Titre de la page' ),
-            Field::make( 'text', 'description', 'Description' ),
-            Field::make( 'text', 'title-actu', 'Titre des actus' ),
-            Field::make( 'text', 'title-mag', 'Titre des magasins' ),
-            Field::make( 'text', 'title-sell', 'Titre meilleures ventes' ),
+add_action('carbon_fields_register_fields', function () {
+    Container::make('theme_options', 'Coordonnées')
+        ->add_fields(array(
+            Field::make('text', 'siteadress', 'Adresse'),
+            Field::make('text', 'telephone', 'Téléphone du site'),
+            Field::make('text', 'email', 'Email du site'),
         ));
-} );
+    Container::make('theme_options', 'Page d\'accueil')
+        ->add_fields(array(
+            Field::make('text', 'title', 'Titre de la page'),
+            Field::make('text', 'description', 'Description'),
+            Field::make('text', 'title-actu', 'Titre des actus'),
+            Field::make('text', 'title-mag', 'Titre des magasins'),
+            Field::make('text', 'title-sell', 'Titre meilleures ventes'),
+        ));
+});
+
+
+add_action('widgets_init', function () {
+    register_sidebar(
+        array(
+            'name' => esc_html__('Center Sidebar', 'bikeshop_theme'),
+            'id' => 'center-footer',
+            'description' => esc_html__('Add widgets here.', 'bikeshop_theme'),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget' => '</section>',
+            'before_title' => '<h3 class="titleFooter">',
+            'after_title' => '</h3>',
+        )
+    );
+});
 
 
 

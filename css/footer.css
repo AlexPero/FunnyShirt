@@ -1,0 +1,23 @@
+footer{
+    background-color: #3B434A;
+}
+.titleFooter{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    color: white;
+}
+.center{
+    text-align: center;
+    color: white;
+}
+.titleFooter{
+    text-align: center;
+    color: white;
+}
+#menu-menu-footer{
+    text-align: center;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}

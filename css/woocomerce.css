@@ -1,0 +1,28 @@
+.product{
+    background-color: #F8F9FA;
+    border-radius: 15px;
+}
+.product:hover{
+    background-color: #3B434A;
+    border-radius: 15px;
+    color: white;
+}
+li.product .button {
+    width: 100%;
+    text-align: center;
+}
+.woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+    padding: 1rem;
+}
+.woocommerce ul.products li.product a img {
+    border-radius: 15px;
+}
+.woocommerce ul.products li.product .price {
+    color: #77a464;
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.woocommerce ul.products li.product .woocommerce-loop-product__title{
+    font-size: 21px;
+}

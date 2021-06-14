@@ -71,7 +71,6 @@
                         }else{
                             let marker = L.marker([<?php echo carbon_get_the_post_meta('longitude');?>, <?php echo carbon_get_the_post_meta('latitude');?>]).addTo(mapid);
                         }
-                        if
                         //let popup = <?php echo $adresse ?>;
                         //marker.bindPopup(popup);
                     </script>
