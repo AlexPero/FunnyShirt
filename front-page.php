@@ -24,7 +24,30 @@ $posts = new WP_Query([
 <div class="container-fluid slider-front">
     <?php if ($slider->have_posts()) : while ($slider->have_posts()) : $slider->the_post(); ?>
         <div class="slide" style="background-image: url('<?= the_post_thumbnail_url($slider, 'full'); ?>');">
+            <div class="container slideHeigth">
+                <div class="row slideHeigth" >
+                    <div class="content-<?= carbon_get_the_post_meta('css_side') ?>">
+                        <div class="contentAlign">
+                            <h2><?= the_title() ?></h2>
+                            <?php if (carbon_get_the_post_meta('description')): ?>
+                                <p class="descriptionSlider"> <?= carbon_get_the_post_meta('description'); ?></p>
+                            <?php endif; ?>
+                            <?php $buttons = carbon_get_the_post_meta('btnslider'); ?>
 
+                            <div class="buttonsSlider">
+                                <?php foreach ($buttons as $button) : ?>
+                                    <?php $arrayButton = $button["crb_association"]; ?>
+                                    <?php foreach ($arrayButton as $link ) : ?>
+                                        <a href="<?= get_the_permalink($link['id']); ?>" class="btn btn-danger buttonSlider">
+                                            <?= $button['text'] ?>
+                                        </a>
+                                    <?php endforeach; ?>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     <?php endwhile; else : ?>
         <p> A pas de slide</p>

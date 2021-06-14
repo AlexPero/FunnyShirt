@@ -44,9 +44,32 @@ add_action('carbon_fields_register_fields', function () {
         ->where('post_type', '=', 'slider')
         ->add_fields([
             Field::make('text', 'description', __('Slide Description (facultatif)')),
+            Field::make( 'radio', 'css_side', 'Ou sera le contenu du slide ?' )
+                ->add_options( array(
+                    'right'=>'A droite du slide',
+                    'left'=>'A gauche du slide'
+                ) ),
             Field::make('complex', 'btnslider')
                 ->add_fields([
-                    Field::make('text', 'text')
+                    Field::make('text', 'text'),
+                    Field::make( 'association', 'crb_association', __( 'Association' ) )
+                        ->set_types( array(
+                            array(
+                                'type'      => 'post',
+                                'post_type' => 'page',
+                            ),
+                            array(
+                                'type'      => 'post',
+                                'post_type' => 'post',
+                            ),
+                            array(
+                                'type'      => 'term',
+                                'taxonomy' => 'sell_ville',
+                            )
+                        ) )
+                        ->set_max(1)
+                        ->set_min(1)
+
                 ])
         ]);
 });
